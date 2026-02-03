@@ -1,5 +1,5 @@
 /* 
-    ADNNA C | DESIGN SYSTEM V5.0 
+    ADNANA C | DESIGN SYSTEM V5.0 
     BRUTALIST ARCHITECTURAL LUXURY 
 */
 
@@ -50,7 +50,7 @@ body {
     position: fixed; top: 0; left: 0; width: 100%; padding: 40px 5vw;
     display: flex; justify-content: space-between; align-items: center; z-index: 1000;
 }
-.logo { font-family: var(--font-heading); font-weight: 900; font-size: 1.5rem; color: var(--fg); text-decoration: none; }
+.logo { font-family: var(--font-heading); font-weight: 900; font-size: 1.5rem; text-decoration: none; }
 .nav-links { display: flex; gap: 4vw; }
 .nav-link { font-family: var(--font-alt); font-size: 1rem; color: var(--fg); text-decoration: none; letter-spacing: 2px; opacity: 0.4; transition: 0.4s; }
 .nav-link:hover { opacity: 1; color: var(--accent); }
