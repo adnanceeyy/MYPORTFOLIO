@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Archive | Mohammed Adnan C Portfolio</title>
+    <meta name="description" content="Explore the project archive of Mohammed Adnan C. A showcase of MERN stack applications, UI designs, and digital experiments." />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Project Archive | Mohammed Adnan C" />
+    <meta property="og:description" content="A curated collection of web development projects and design experiments." />
+    <meta property="og:image" content="macOs.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Project Archive | Mohammed Adnan C" />
+    <meta property="twitter:description" content="A curated collection of web development projects and design experiments." />
+    <meta property="twitter:image" content="macOs.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --macos-bg: #000000;
+            --macos-glass: rgba(0, 0, 0, 0.5);
+            --macos-blur: blur(30px);
+            --macos-border: rgba(255, 255, 255, 0.04);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --primary-accent: #00ffcc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-main);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            /* Dark MacBook Style Wallpaper */
+            background: url('macOs.jpg') center/cover no-repeat;
+            color: #fff;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.149);
+            z-index: 0;
+        }
+
+        /* Top Menu Bar */
+        .menu-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: var(--macos-blur);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 13px;
+            font-weight: 500;
+            z-index: 1000;
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .menu-left {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .apple-icon {
+            font-size: 10px;
+            margin-right: 5px;
+        }
+
+        .menu-right {
+            margin-left: auto;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            opacity: 0.8;
+        }
+
+        /* Desktop Area */
+        .desktop {
+            position: relative;
+            z-index: 1;
+            height: calc(100vh - 30px);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 100px);
+            grid-template-rows: repeat(auto-fill, 110px);
+            grid-auto-flow: column;
+            gap: 20px;
+            justify-content: end;
+        }
+
+        .desktop-icon {
+            width: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+        }
+
+        .desktop-icon:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .desktop-icon:active {
+            transform: scale(0.95);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .folder-icon-wrap {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .folder-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        }
+
+
+
+        .icon-label {
+            font-size: 11px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+            font-weight: 500;
+            color: #fff;
+            max-width: 100%;
+            border-radius: 4px;
+            text-align: center;
+            align-items: center;
+
+        }
+
+        /* PDF Icon Style */
+        .pdf-icon-wrap {
+            width: 45px;
+            height: 58px;
+            background: #f8f8f8;
+            border-radius: 4px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 0.5px solid rgba(0,0,0,0.1);
+        }
+        .pdf-header {
+            width: 100%;
+            height: 14px;
+            background: #ff3b30;
+            color: white;
+            font-size: 8px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px 4px 0 0;
+            letter-spacing: 0.5px;
+        }
+        .pdf-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 6px;
+        }
+        .pdf-line {
+            height: 2px;
+            background: rgba(0,0,0,0.1);
+            width: 80%;
+        }
+        .pdf-line.short { width: 50%; }
+
+        /* macOS Dock */
+        .dock-container {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: var(--macos-blur);
+            border: 1px solid var(--macos-border);
+            border-radius: 18px;
+            display: flex;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .dock-item {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dock-item:hover {
+            transform: scale(1.4) translateY(-10px);
+            margin: 0 10px;
+        }
+
+        .dock-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: none;
+        }
+        .dock-item.active::after { display: block; }
+
+        .tooltip {
+            position: absolute;
+            top: -40px;
+            background: rgba(0,0,0,0.8);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            white-space: nowrap;
+            display: none;
+            pointer-events: none;
+        }
+        .dock-item:hover .tooltip { display: block; }
+
+        /* Performance Fix: Preview Window (Optional but cool if user clicks) */
+        .preview-window {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 650px;
+            height: auto;
+            min-height: 500px;
+            background: rgba(25, 25, 25, 0.98);
+            backdrop-filter: var(--macos-blur);
+            border: 1px solid var(--macos-border);
+            border-radius: 14px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+            z-index: 2000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .preview-window.active {
+            display: flex;
+            animation: fadeIn 0.4s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .preview-header {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the title */
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 0.5px solid var(--macos-border);
+            position: relative;
+        }
+
+        .controls { 
+            display: flex; 
+            gap: 8px; 
+            position: absolute;
+            left: 20px;
+        }
+        
+        .dot { 
+            width: 13px; 
+            height: 13px; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            font-weight: 900;
+            color: rgba(0,0,0,0);
+            transition: 0.2s;
+        }
+
+        .controls:hover .dot {
+            color: rgba(0,0,0,0.5);
+        }
+
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+
+        .dot.red::before { content: '×'; }
+        .dot.yellow::before { content: '−'; }
+        .dot.green::before { content: '+'; }
+
+        .preview-body { 
+            padding: 40px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center; 
+        }
+        
+        .preview-img-wrap {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .preview-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: 0.5s;
+        }
+
+        .preview-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+            font-family: var(--font-main);
+        }
+
+        .preview-desc {
+            opacity: 0.5;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            max-width: 480px;
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .preview-btn {
+            flex: 1;
+            max-width: 200px;
+            padding: 15px 0;
+            background: var(--primary-accent);
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .preview-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .preview-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.3);
+            filter: brightness(1.1);
+        }
+
+        .preview-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Settings Loading Overlay */
+        .settings-loader {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #fff;
+        }
+        .settings-loader.active { display: flex; }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: var(--primary-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+    </style>
+</head>
+<body>
+
+    <div class="menu-bar">
+        <div class="menu-left">
+            <span class="apple-icon"><img src="apple-logo.png" alt="Apple System Menu"></span>
+            <span style="font-weight: 700;">Finder</span>
+            <span>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Go</span>
+            <span>Window</span>
+            <span>Help</span>
+        </div>
+        <div class="menu-right">
+            <span><img style="height: 22px; filter: invert(1); margin-top: 3px;" src="battery.png" alt=""></span>
+            <span><img style="height: 15px; filter: invert(1); margin-top: 3px;" src="connection.png" alt=""></span>
+            <span><img style="height: 15px; filter: invert(1); margin-top: 5px;" src="search.png" alt=""></span>
+            <span style="font-weight: 600;" id="clock">08:45 AM</span>
+        </div>
+    </div>
+
+    <div class="desktop">
+        <!-- Project 1 -->
+        <div class="desktop-icon" onclick="openPreview('elekyo')">
+            <div class="folder-icon-wrap">
+                <img src="folder.png" alt="macOS Style Folder Icon" class="folder-img">
+            </div>
+            <span class="icon-label">Elekyo.com</span>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="desktop-icon" onclick="openPreview('admin')">
+            <div class="folder-icon-wrap">
+                <img src="folder.png" alt="macOS Style Folder Icon" class="folder-img">
+            </div>
+            <span class="icon-label">AdminElekyo</span>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="desktop-icon" onclick="openPreview('finance')">
+            <div class="folder-icon-wrap">
+                <img src="folder.png" alt="macOS Style Folder Icon" class="folder-img">
+            </div>
+            <span class="icon-label">Finance</span>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="desktop-icon" onclick="openPreview('caption')">
+            <div class="folder-icon-wrap">
+                <img src="folder.png" alt="macOS Style Folder Icon" class="folder-img">
+            </div>
+            <span class="icon-label">CaptionCraft</span>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="desktop-icon" onclick="openPreview('gamerpark')">
+            <div class="folder-icon-wrap">
+                <img src="folder.png" alt="macOS Style Folder Icon" class="folder-img">
+            </div>
+            <span class="icon-label">GamerPark</span>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="desktop-icon" onclick="openPreview('appleclock')">
+            <div class="folder-icon-wrap">
+                <img src="folder.png" alt="macOS Style Folder Icon" class="folder-img">
+            </div>
+            <span class="icon-label">AppleClock</span>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="desktop-icon" onclick="openPreview('rps')">
+            <div class="folder-icon-wrap">
+                <img src="folder.png" alt="macOS Style Folder Icon" class="folder-img">
+            </div>
+            <span class="icon-label">RPS</span>
+        </div>
+
+        <!-- Home Shortcut -->
+        <!-- Fake Files -->
+        <div class="desktop-icon" onclick="window.open('Adnan_MERN_Resume.pdf', '_blank')">
+            <div class="pdf-icon-wrap">
+                <div class="pdf-header">PDF</div>
+                <div class="pdf-body">
+                    <div class="pdf-line"></div>
+                    <div class="pdf-line"></div>
+                    <div class="pdf-line short"></div>
+                </div>
+            </div>
+            <span class="icon-label">Resume.pdf</span>
+        </div>
+
+        <!-- Home Shortcut (Moved to end) -->
+        <div class="desktop-icon" onclick="window.location.href='index.html'">
+            <div class="folder-icon-wrap">
+                <img src="folder.png" alt="" class="folder-img" style="filter: grayscale(1) brightness(1.8) opacity(0.8);">
+            </div>
+            <span class="icon-label">Back to Home</span>
+        </div>
+    </div>
+
+    <!-- Dock -->
+    <div class="dock-container">
+        <div class="dock-item" onclick="window.location.href='index.html'"><img style="height: 40px;" src="home.png" alt="Back to Home Page"><div class="tooltip">Home</div>
+        </div>
+        <div class="dock-item active"><img style="height: 40px;" src="folder.png" alt="Active Project Archive"><div class="tooltip">Finder</div>
+        </div>
+        <div class="dock-item" onclick="window.open('https://www.google.com/search?q=Mohammed+Adnan+C', '_blank')"><img style="height: 40px;" src="safari.png" alt="Web Browser Link"><div class="tooltip">Safari</div>
+        </div>
+        <div class="dock-item" onclick="window.open('https://wa.me/917034887478?text=Hi%20Adnan,%20I%20saw%20your%20portfolio%20and%20I%20am%20interested%20in%20contacting%20you!', '_blank')"><img style="height: 40px;" src="messages.png" alt="Contact Messages Hub"><div class="tooltip">Messages</div>
+        </div>
+        <div class="dock-item" onclick="showSettingsLoading()"><img style="height: 40px;" src="settings-logo.png" alt="Portfolio System Settings"><div class="tooltip">Settings</div>
+        </div>
+    </div>
+
+    <!-- Settings Loading Overlay -->
+    <div class="settings-loader" id="settingsLoader">
+        <div class="spinner"></div>
+        <p id="settingsStatus" style="font-family: var(--font-main); letter-spacing: 2px; font-size: 12px; opacity: 0.8; text-transform: uppercase;">INITIALIZING SYSTEM...</p>
+    </div>
+
+    <!-- Preview Window -->
+    <div class="preview-window" id="previewWindow">
+        <div class="preview-header">
+            <div class="controls">
+                <div class="dot red" onclick="closePreview()"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <span style="margin-left: 20px; font-size: 13px; opacity: 0.7;" id="previewTitle">Preview</span>
+        </div>
+        <div class="preview-body" id="previewBody">
+            <div class="preview-img-wrap">
+                <img src="" alt="" class="preview-img" id="previewImg">
+            </div>
+            <h2 id="projectName" class="preview-title">Project Name</h2>
+            <p id="projectDesc" class="preview-desc">Detailed description here.</p>
+            <div class="preview-actions">
+                <a href="#" target="_blank" class="preview-btn" id="previewLink">VIEW LIVE PROJECT</a>
+                <a href="https://github.com/adnanceeyy" target="_blank" class="preview-btn secondary">SOURCE CODE</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dock Magnification Effect
+        const dock = document.querySelector('.dock-container');
+        const dockItems = document.querySelectorAll('.dock-item');
+
+        dock.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX;
+            dockItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const dist = Math.abs(mouseX - centerX);
+                const scale = Math.max(1, 1.5 - dist / 150);
+                item.style.transform = `scale(${scale})`;
+                item.style.margin = `0 ${Math.max(0, (scale - 1) * 20)}px`;
+            });
+        });
+
+        dock.addEventListener('mouseleave', () => {
+            dockItems.forEach(item => {
+                item.style.transform = 'scale(1)';
+                item.style.margin = '0';
+            });
+        });
+
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedHours = hours % 12 || 12;
+            const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('clock').textContent = `${formattedHours}:${formattedMinutes} ${ampm}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        const projects = {
+            'elekyo': {
+                name: 'ELEKYO.COM',
+                desc: 'E-commerce platform build with MERN and GSAP animations.',
+                img: 'ecomerce.jpg',
+                link: 'https://elekyo.vercel.app/'
+            },
+            'admin': {
+                name: 'ADMINELEKYO',
+                desc: 'Powerful administrative dashboard for inventory and orders.',
+                img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200',
+                link: 'https://adminelekyo.vercel.app/'
+            },
+            'finance': {
+                name: 'FINANCE',
+                desc: 'Modern financial landing page with interactive UI elements.',
+                img: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1200',
+                link: 'https://adsweb-rho.vercel.app/'
+            },
+            'caption': {
+                name: 'CaptionCraft',
+                desc: 'AI-powered social media assistant for content creators.',
+                img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200',
+                link: 'https://instacaptioncraft.vercel.app'
+            },
+            'gamerpark': {
+                name: 'GamerPark',
+                desc: '6+ Verity Games with High-fidelity UI design, built with shadcnUI and GSAP animations.',
+                img: 'gamerpark.png',
+                link: 'https://gamerpark.vercel.app'
+            },
+            'appleclock': {
+                name: 'AppleClock',
+                desc: 'Screen Saver Time Sleeping Time - Multiplatform mobile & desktop Web App.',
+                img: 'clock.png',
+                link: 'https://appleclock.vercel.app'
+            },
+            'rps': {
+                name: 'RPS',
+                desc: 'Rock Paper Scissors Game.',
+                img: 'rps.png',
+                link: 'https://adnanceeyy.github.io/RPS'
+            }
+        };
+
+        function openPreview(id) {
+            const data = projects[id];
+            if(!data) return;
+            
+            document.getElementById('previewTitle').innerText = data.name;
+            document.getElementById('projectName').innerText = data.name;
+            document.getElementById('projectDesc').innerText = data.desc;
+            document.getElementById('previewImg').src = data.img;
+            document.getElementById('previewLink').href = data.link;
+            
+            document.getElementById('previewWindow').classList.add('active');
+        }
+
+        function closePreview() {
+            document.getElementById('previewWindow').classList.remove('active');
+        }
+
+        let settingsClickCount = 0;
+        function showSettingsLoading() {
+            const loader = document.getElementById('settingsLoader');
+            const status = document.getElementById('settingsStatus');
+            
+            settingsClickCount++;
+            loader.classList.add('active');
+            
+            if(settingsClickCount === 1) {
+                // First Click: Standard 5s Loading
+                status.innerText = "OPTIMIZING SYSTEM PREFERENCES...";
+                setTimeout(() => {
+                    loader.classList.remove('active');
+                }, 5000);
+            } else {
+                // Second (or more) Click: 5s Loading + 2s Fooling
+                status.innerText = "PERFORMING DEEP CORE OPTIMIZATION...";
+                
+                setTimeout(() => {
+                    status.innerHTML = "<span style='color: #ff3b30; font-size: 1.5rem; font-weight: 900;'>WARNING: CRITICAL LEVEL</span><br><br>DETECTION: CREATIVE TALENT OVERLOAD";
+                }, 5000);
+
+                setTimeout(() => {
+                    loader.classList.remove('active');
+                    if(settingsClickCount >= 2) settingsClickCount = 0; // Reset for next cycle
+                }, 7000); // 5s + 2s = 7s
+            }
+        }
+
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape') closePreview();
+        });
+    </script>
+</body>
+</html>

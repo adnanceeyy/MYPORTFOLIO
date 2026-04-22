@@ -3,7 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ADNAN C</title>
+    <title>Mohammed Adnan C | MERN Stack Developer & UI Designer</title>
+
+    <meta name="description" content="Mohammed Adnan C - Top-rated MERN Stack Developer & UI Designer based in Kerala, India. Expert in React, Node.js, and high-performance digital architecture." />
+    <meta name="keywords" content="Mohammed Adnan C, Adnan C, MERN Stack Developer Kerala, Best Web Designer Kerala, React Developer India, Full Stack Developer Kerala, UI UX Designer India, Antigravity Portfolio, Adnan Studio Kerala" />
+    <meta name="geo.region" content="IN-KL" />
+    <meta name="geo.placename" content="Kerala" />
+    <meta name="geo.position" content="10.8505;76.2711" />
+    <meta name="ICBM" content="10.8505, 76.2711" />
+    <meta name="author" content="Mohammed Adnan C" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourportfolio.com/" />
+    <meta property="og:title" content="Mohammed Adnan C | MERN Stack Developer" />
+    <meta property="og:description" content="Creating hyper-functional digital identities where high-end development meets architectural design minimalism." />
+    <meta property="og:image" content="adnan.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yourportfolio.com/" />
+    <meta property="twitter:title" content="Mohammed Adnan C | MERN Stack Developer" />
+    <meta property="twitter:description" content="Creating hyper-functional digital identities where high-end development meets architectural design minimalism." />
+    <meta property="twitter:image" content="adnan.jpg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourportfolio.com/" />
+
+    <!-- Schema.org for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Mohammed Adnan C",
+      "alternateName": "Adnan C",
+      "url": "https://yourportfolio.com",
+      "image": "adnan.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kerala",
+        "addressCountry": "India"
+      },
+      "jobTitle": "MERN Stack Developer & UI Designer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Adnan Studio"
+      },
+      "sameAs": [
+        "https://github.com/adnanceeyy",
+        "https://www.linkedin.com/in/mohammed-adnan-c",
+        "https://wa.me/917034887478"
+      ],
+      "description": "Expert MERN Stack Developer based in Kerala, India, specializing in high-performance web applications and minimalist UI/UX design."
+    }
+    </script>
 
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,6 +67,10 @@
       href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;900&family=Plus+Jakarta+Sans:wght@200;800&family=Space+Grotesk:wght@300;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="adnan.jpg">
+    <link rel="apple-touch-icon" href="adnan.jpg">
 
     <style>
       :root {
@@ -152,9 +211,11 @@
       }
       .horizontal-rail {
         display: flex;
-        width: 420vw;
+        width: 470vw;
         height: 100vh;
         will-change: transform;
+        transform: translateZ(0);
+        backface-visibility: hidden;
         transition: none;
       }
       .panel {
@@ -166,9 +227,10 @@
         padding: 0 10vw;
         position: relative;
         overflow: hidden;
+        content-visibility: auto;
       }
       #projects {
-        width: 120vw;
+        width: 170vw;
         padding: 0;
       } /* Maximum tightness */
 
@@ -284,6 +346,8 @@
         padding-left: 20vw;
         padding-right: 15vw;
         height: 100%;
+        will-change: transform;
+        transform: translate3d(0,0,0);
       }
 
       .p-card {
@@ -396,6 +460,20 @@
         padding: 4px 8px;
       }
 
+      /* MORE PROJECTS CARD ANIMATION */
+      .more-projects-card .folder-animation {
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .more-projects-card:hover .folder-animation {
+        transform: scale(1.2) rotate(-5deg);
+      }
+      .more-projects-card:hover .p-img-wrap {
+        background: var(--accent) !important;
+      }
+      .more-projects-card:hover svg {
+        color: #000 !important;
+      }
+
       /* SECTION: CONTACT */
       .contact-content {
         width: 100%;
@@ -409,7 +487,7 @@
       }
       .contact-links {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 40px;
       }
       .c-item h6 {
@@ -606,6 +684,7 @@
         }
       }
     </style>
+
   </head>
   <body>
     <!-- Cinematic Curtain Loader -->
@@ -624,12 +703,13 @@
     <!-- Navigation -->
     <nav class="nav">
       <a href="#home" class="logo">
-        <img src="adnan.jpg" alt="ADNaNA Logo" class="logo-img" />
+        <img src="adnan.jpg" alt="Mohammed Adnan C Portfolio Logo" class="logo-img" />
       </a>
       <div class="nav-links">
         <a href="#home" class="nav-link">HOME</a>
         <a href="#about" class="nav-link">ABOUT</a>
         <a href="#projects" class="nav-link">PROJECTS</a>
+        <a href="Adnan_MERN_Resume.pdf" target="_blank" class="nav-link">RESUME</a>
         <a href="#contact" class="nav-link">CONTACT</a>
       </div>
     </nav>
@@ -650,6 +730,9 @@
               Creating hyper-functional digital identities where high-end
               development meets architectural design minimalism.
             </p>
+            <div style="margin-top: 40px;">
+              <a href="Adnan_MERN_Resume.pdf" target="_blank" style="padding: 15px 30px; border: 1px solid var(--accent); color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 2px; transition: 0.3s; background: var(--accent-dim);">VIEW RESUME</a>
+            </div>
           </div>
         </section>
 
@@ -710,7 +793,7 @@
         <!-- 03: PROJECTS -->
         <section id="projects" class="panel">
           <div class="projects-header">
-            <span class="p-index">03 // OUR CORE PROJUCTS</span>
+            <span class="p-index">03 // OUR CORE PROJECTS</span>
           </div>
           <div class="p-rail skew-container">
             <!-- Project 01 -->
@@ -721,7 +804,7 @@
               <div class="p-card">
                 <div class="p-number">01</div>
                 <div class="p-img-wrap">
-                  <img src="ecomerce.jpg" class="p-img" />
+                  <img src="ecomerce.jpg" alt="Elekyo E-commerce Project Screenshot" class="p-img" decoding="async" />
                 </div>
                 <div class="p-overlay">
                   <span class="p-category">ECOMERCE WEB APP</span>
@@ -744,7 +827,9 @@
                 <div class="p-img-wrap">
                   <img
                     src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200"
+                    alt="AdminElekyo Dashboard Analytics View"
                     class="p-img"
+                    decoding="async"
                   />
                 </div>
                 <div class="p-overlay">
@@ -768,12 +853,14 @@
                 <div class="p-img-wrap">
                   <img
                     src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1200"
+                    alt="Finance Landing Page Interface Design"
                     class="p-img"
+                    decoding="async"
                   />
                 </div>
                 <div class="p-overlay">
-                  <span class="p-category">WEB INDRODUCTION</span>
-                  <h3 class="p-title">FINANCEL.COM</h3>
+                  <span class="p-category">WEB INTRODUCTION</span>
+                  <h3 class="p-title">FINANCE</h3>
                   <div class="p-tech-list">
                     <span class="p-tech-tag">REACT</span>
                     <span class="p-tech-tag">TAILWIND</span>
@@ -792,7 +879,9 @@
                 <div class="p-img-wrap">
                   <img
                     src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200"
+                    alt="CaptionCraft AI Content Assistant"
                     class="p-img"
+                    decoding="async"
                   />
                 </div>
                 <div class="p-overlay">
@@ -806,7 +895,33 @@
                 </div>
               </div>
             </a>
-            <!-- Project 05 -->
+
+
+            <!-- More Projects Card -->
+            <a
+              href="projects.html"
+              style="text-decoration: none; pointer-events: auto; color: white"
+            >
+              <div class="p-card more-projects-card">
+                <div class="p-number">++</div>
+                <div class="p-img-wrap" style="background: var(--accent-dim); display: flex; align-items: center; justify-content: center;">
+                  <div class="folder-animation">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent); opacity: 0.8;">
+                      <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="p-overlay">
+                  <span class="p-category">EXPLORE ARCHIVE</span>
+                  <h3 class="p-title">MORE PROJECTS</h3>
+                  <div class="p-tech-list">
+                    <span class="p-tech-tag">MACOS</span>
+                    <span class="p-tech-tag">DESKTOP</span>
+                    <span class="p-tech-tag">INTERFACE</span>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
         </section>
 
@@ -834,6 +949,10 @@
                 >
               </div>
               <div class="c-item">
+                <h6>CREDENTIALS</h6>
+                <a href="Adnan_MERN_Resume.pdf" target="_blank" class="magnetic">DOWNLOAD RESUME</a>
+              </div>
+              <div class="c-item">
                 <h6>STATUS</h6>
                 <a href="https://wa.me/7034887478">AVAILABLE // 2026</a>
               </div>
@@ -850,8 +969,12 @@
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
     <script>
-      // --- MASTER SYSTEM V9 ---
+      // --- MASTER SYSTEM V10 ---
       gsap.registerPlugin(ScrollTrigger);
+      
+      // Performance Settings
+      gsap.config({ force3D: true });
+      ScrollTrigger.config({ ignoreMobileResize: true });
 
       // IMMEDIATE RESET
       history.scrollRestoration = "manual";
@@ -870,6 +993,7 @@
           wheelMultiplier: 1.1,
           touchMultiplier: 2,
         });
+
         function raf(time) {
           lenis.raf(time);
           requestAnimationFrame(raf);
@@ -927,21 +1051,21 @@
         const renderer = new THREE.WebGLRenderer({
           canvas,
           alpha: true,
-          antialias: true,
+          antialias: false, // Much faster
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setPixelRatio(1); // Standard resolution is enough for bg
 
         // Grid Structure
-        const gridHelper = new THREE.GridHelper(100, 50, 0x00ffcc, 0x222222);
+        const gridHelper = new THREE.GridHelper(100, 40, 0x00ffcc, 0x111111);
         gridHelper.position.y = -5;
         gridHelper.material.transparent = true;
-        gridHelper.material.opacity = 0.15;
+        gridHelper.material.opacity = 0.1;
         scene.add(gridHelper);
 
         // Floating Points
         const geometry = new THREE.BufferGeometry();
-        const particlesCount = 1000;
+        const particlesCount = 400; // Half count for performance
         const posArray = new Float32Array(particlesCount * 3);
         for (let i = 0; i < particlesCount * 3; i++) {
           posArray[i] = (Math.random() - 0.5) * 60;
@@ -1007,7 +1131,10 @@
           scrollTrigger: {
             trigger: ".scroll-wrapper",
             pin: true,
-            scrub: 1,
+            scrub: true,
+            anticipatePin: 1,
+            fastScrollEnd: true,
+            invalidateOnRefresh: true,
             end: () => "+=" + container.scrollWidth,
             onUpdate: (self) => {
               gsap.to(".scroller-progress", {
@@ -1035,6 +1162,7 @@
           opacity: 0,
           stagger: 0.08,
           duration: 1.2,
+          lazy: false,
           ease: "expo.out",
           scrollTrigger: {
             trigger: "#projects",
