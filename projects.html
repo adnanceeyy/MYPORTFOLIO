@@ -108,22 +108,21 @@
         }
 
         .desktop-icon {
-            width: 90px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            text-align: center;
             cursor: pointer;
-            transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.2s;
+            text-decoration: none;
+            color: white;
             padding: 10px;
             border-radius: 8px;
-            border: 1px solid transparent;
         }
-
-        .desktop-icon:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.1);
+        @media (hover: hover) {
+            .desktop-icon:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
         }
 
         .desktop-icon:active {
@@ -229,9 +228,11 @@
             position: relative;
         }
 
-        .dock-item:hover {
-            transform: scale(1.4) translateY(-10px);
-            margin: 0 10px;
+        @media (hover: hover) {
+            .dock-item:hover {
+                transform: scale(1.4) translateY(-10px);
+                margin: 0 10px;
+            }
         }
 
         .dock-item::after {
@@ -257,7 +258,9 @@
             display: none;
             pointer-events: none;
         }
-        .dock-item:hover .tooltip { display: block; }
+        @media (hover: hover) {
+            .dock-item:hover .tooltip { display: block; }
+        }
 
         /* Performance Fix: Preview Window (Optional but cool if user clicks) */
         .preview-window {
@@ -404,15 +407,17 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .preview-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.3);
-            filter: brightness(1.1);
-        }
+        @media (hover: hover) {
+            .preview-btn:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 30px rgba(0, 255, 204, 0.3);
+                filter: brightness(1.1);
+            }
 
-        .preview-btn.secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            .preview-btn.secondary:hover {
+                background: rgba(255, 255, 255, 0.15);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            }
         }
 
         /* Settings Loading Overlay */
@@ -439,6 +444,143 @@
             margin-bottom: 20px;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* --- TOUCH DEVICE OPTIMIZATION (iPHONE & iPAD) --- */
+        @media (max-width: 1024px) {
+            body {
+                background: url('https://images.unsplash.com/photo-1620121692029-d088224efc74?q=80&w=1000') center/cover no-repeat fixed !important;
+                background-color: #000 !important;
+                overflow: hidden;
+            }
+            .menu-bar {
+                height: 44px;
+                background: transparent !important;
+                backdrop-filter: none;
+                padding: 0 25px;
+                border: none !important;
+            }
+            .menu-left span:not(#clock), .menu-left span:not(#clock) + span { display: none !important; }
+            .menu-left { width: 100%; justify-content: space-between; position: relative; z-index: 100; }
+            .menu-right { display: flex; align-items: center; gap: 8px; position: relative; z-index: 100; }
+            #clock { font-size: 14px; letter-spacing: 0; font-weight: 700; color: #fff !important; }
+            .apple-icon { display: none !important; }
+            .menu-left span { display: none; }
+            .menu-left #clock { display: block; }
+            
+            /* Dynamic Island */
+            .menu-bar::after {
+                content: '';
+                position: absolute;
+                top: 8px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 110px;
+                height: 30px;
+                background: #000;
+                border-radius: 15px;
+                z-index: 50;
+            }
+
+            .desktop {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)) !important;
+                grid-template-rows: auto !important;
+                gap: 20px !important;
+                padding: 80px 20px 120px !important;
+                height: 100vh !important;
+                justify-items: center !important;
+                align-content: start !important;
+                grid-auto-flow: row !important;
+                overflow-y: auto !important;
+            }
+            @media (min-width: 601px) {
+                .desktop { grid-template-columns: repeat(6, 1fr) !important; gap: 40px !important; padding: 100px 50px !important; }
+                .menu-bar { display: none !important; } /* Hide bar on iPad */
+            }
+
+            .desktop-icon { 
+                width: 100% !important;
+                max-width: 100px;
+                padding: 5px !important;
+                flex-direction: column !important;
+                gap: 5px !important;
+            }
+            .folder-icon-wrap, .pdf-icon-wrap {
+                width: 65px !important;
+                height: 65px !important;
+                border-radius: 16px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+            }
+            @media (min-width: 601px) {
+                .folder-icon-wrap, .pdf-icon-wrap { width: 90px !important; height: 90px !important; border-radius: 20px !important; }
+            }
+
+            .folder-img, .pdf-header, .pdf-body { display: none !important; }
+            
+            /* App Icon Mappings */
+            .desktop-icon[onclick*="elekyo"] .folder-icon-wrap { background: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%) !important; }
+            .desktop-icon[onclick*="elekyo"] .folder-icon-wrap::after { content: '🛒'; font-size: 1.8rem; }
+            .desktop-icon[onclick*="finance"] .folder-icon-wrap { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; }
+            .desktop-icon[onclick*="finance"] .folder-icon-wrap::after { content: '💳'; font-size: 1.8rem; }
+            .desktop-icon[onclick*="caption"] .folder-icon-wrap { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important; }
+            .desktop-icon[onclick*="caption"] .folder-icon-wrap::after { content: '✍️'; font-size: 1.8rem; }
+            .desktop-icon[onclick*="gamer"] .folder-icon-wrap { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%) !important; }
+            .desktop-icon[onclick*="gamer"] .folder-icon-wrap::after { content: '🎮'; font-size: 1.8rem; }
+            .desktop-icon[onclick*="appleclock"] .folder-icon-wrap { background: #000 !important; }
+            .desktop-icon[onclick*="appleclock"] .folder-icon-wrap::after { content: '⏰'; font-size: 1.8rem; }
+            .desktop-icon[onclick*="rps"] .folder-icon-wrap { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%) !important; }
+            .desktop-icon[onclick*="rps"] .folder-icon-wrap::after { content: '✊'; font-size: 1.8rem; }
+            .desktop-icon[onclick*="window.location.href='index.html'"] .folder-icon-wrap { background: #333 !important; }
+            .desktop-icon[onclick*="window.location.href='index.html'"] .folder-icon-wrap::after { content: '🏠'; font-size: 1.8rem; }
+            .pdf-icon-wrap { background: #fff !important; }
+            .pdf-icon-wrap::after { content: '📄'; font-size: 1.8rem; }
+
+            @media (min-width: 601px) {
+                .folder-icon-wrap::after, .pdf-icon-wrap::after { font-size: 2.5rem !important; }
+            }
+
+            .icon-label { 
+                font-size: 11px !important; 
+                margin-top: 5px !important;
+                color: white !important;
+                text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+                text-align: center;
+                width: 100%;
+            }
+
+            .dock-container {
+                width: calc(100% - 40px);
+                max-width: 500px;
+                bottom: 30px;
+                background: rgba(255,255,255,0.25);
+                backdrop-filter: blur(25px);
+                border: none;
+                border-radius: 30px;
+                height: 85px;
+                padding: 10px 25px;
+                left: 50%;
+                transform: translateX(-50%) !important;
+            }
+            @media (min-width: 601px) { .dock-container { width: 70%; max-width: 600px; height: 100px; border-radius: 40px; } }
+            
+            .dock-item img { height: 50px !important; }
+            @media (min-width: 601px) { .dock-item img { height: 65px !important; } }
+            
+            .dock-item { transition: none !important; transform: none !important; }
+            .dock-item:active { transform: scale(0.9) !important; }
+        }
+
+            /* Tablet Preview Window Tuning */
+            .preview-window {
+                width: 85%;
+                height: auto;
+                max-height: 90vh;
+            }
+            .preview-title { font-size: 2rem; }
+        }
 
     </style>
 </head>

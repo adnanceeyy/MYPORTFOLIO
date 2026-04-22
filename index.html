@@ -87,7 +87,6 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        cursor: none;
       }
       body {
         background: var(--bg);
@@ -137,27 +136,32 @@
         box-shadow: 0 0 15px var(--accent);
       }
 
-      /* CURSOR */
-      .cursor {
-        width: 8px;
-        height: 8px;
-        background: var(--accent);
-        position: fixed;
-        border-radius: 50%;
-        z-index: 100000;
-        pointer-events: none;
-        mix-blend-mode: difference;
-      }
-      .cursor-follower {
-        width: 40px;
-        height: 40px;
-        border: 1px solid var(--accent);
-        position: fixed;
-        border-radius: 50%;
-        z-index: 99999;
-        pointer-events: none;
-        mix-blend-mode: difference;
-        transition: transform 0.15s ease-out;
+      .cursor, .cursor-follower { display: none; }
+      @media (min-width: 1025px) {
+        body { cursor: none; }
+        .cursor {
+          display: block;
+          width: 8px;
+          height: 8px;
+          background: var(--accent);
+          position: fixed;
+          border-radius: 50%;
+          z-index: 100000;
+          pointer-events: none;
+          mix-blend-mode: difference;
+        }
+        .cursor-follower {
+          display: block;
+          width: 40px;
+          height: 40px;
+          border: 1px solid var(--accent);
+          position: fixed;
+          border-radius: 50%;
+          z-index: 99999;
+          pointer-events: none;
+          mix-blend-mode: difference;
+          transition: transform 0.15s ease-out;
+        }
       }
 
       /* NAVIGATION */
@@ -179,13 +183,17 @@
         transition: transform 0.4s;
         border-radius: 50px;
       }
-      .logo-img:hover {
-        transform: scale(1.1);
+      @media (hover: hover) {
+        .logo-img:hover {
+          transform: scale(1.1);
+        }
       }
       .nav-links {
         display: flex;
         gap: 40px;
       }
+      .nav-menu-btn { display: none; }
+      .mobile-menu { display: none; }
       .nav-link {
         font-family: var(--font-mono);
         text-decoration: none;
@@ -197,9 +205,11 @@
         font-weight: 700;
         text-transform: uppercase;
       }
-      .nav-link:hover {
-        opacity: 1;
-        color: var(--accent);
+      @media (hover: hover) {
+        .nav-link:hover {
+          opacity: 1;
+          color: var(--accent);
+        }
       }
 
       /* LAYOUT CORE */
@@ -309,11 +319,13 @@
         font-size: 0.7rem;
         transition: 0.3s;
       }
-      .a-pill:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-        background: var(--accent-dim);
-        transform: translateY(-5px);
+      @media (hover: hover) {
+        .a-pill:hover {
+          border-color: var(--accent);
+          color: var(--accent);
+          background: var(--accent-dim);
+          transform: translateY(-5px);
+        }
       }
       .about-title-massive {
         font-family: var(--font-heading);
@@ -395,18 +407,20 @@
         transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
-      .p-card:hover {
-        border-color: var(--accent);
-        z-index: 10;
-        transform: scale(1.02);
-      }
-      .p-card:hover .p-img {
-        filter: grayscale(0) contrast(1) brightness(0.6);
-        transform: scale(1.1);
-      }
-      .p-card:hover .p-overlay {
-        opacity: 1;
-        backdrop-filter: blur(2px);
+      @media (hover: hover) {
+        .p-card:hover {
+          border-color: var(--accent);
+          z-index: 10;
+          transform: scale(1.02);
+        }
+        .p-card:hover .p-img {
+          filter: grayscale(0) contrast(1) brightness(0.6);
+          transform: scale(1.1);
+        }
+        .p-card:hover .p-overlay {
+          opacity: 1;
+          backdrop-filter: blur(2px);
+        }
       }
 
       .p-number {
@@ -422,10 +436,12 @@
         transition: 0.5s;
         pointer-events: none;
       }
-      .p-card:hover .p-number {
-        color: var(--accent);
-        opacity: 0.1;
-        transform: translateX(10px);
+      @media (hover: hover) {
+        .p-card:hover .p-number {
+          color: var(--accent);
+          opacity: 0.1;
+          transform: translateX(10px);
+        }
       }
 
       .p-title {
@@ -505,8 +521,10 @@
         font-weight: 700;
         transition: 0.3s;
       }
-      .c-item a:hover {
-        color: var(--accent);
+      @media (hover: hover) {
+        .c-item a:hover {
+          color: var(--accent);
+        }
       }
 
       /* UI ELEMENTS */
@@ -542,21 +560,23 @@
         }
 
         .home-title {
-          font-size: clamp(3rem, 10vw, 8rem);
-          letter-spacing: -3px;
+          font-size: clamp(3.5rem, 15vw, 10rem);
+          line-height: 0.85;
+          letter-spacing: -4px;
         }
         .home-sub {
-          font-size: 0.95rem;
+          font-size: clamp(1rem, 2vw, 1.3rem);
           max-width: 100%;
-          margin-top: 20px;
-          line-height: 1.5;
+          margin-top: 30px;
+          line-height: 1.6;
+          opacity: 0.6;
         }
 
         .about-title-massive {
-          font-size: clamp(2rem, 10vw, 4.5rem);
-          letter-spacing: -2px;
-          margin-bottom: 30px;
-          line-height: 0.9;
+          font-size: clamp(3rem, 12vw, 7rem);
+          letter-spacing: -4px;
+          margin-bottom: 50px;
+          line-height: 0.8;
           word-wrap: break-word;
         }
         .about-layout {
@@ -578,9 +598,42 @@
           opacity: 0.7;
         }
 
+        .p-rail {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          padding: 0;
+          width: 100%;
+        }
+        .p-rail a {
+          width: 100%;
+          display: block;
+          text-decoration: none;
+        }
         .p-card {
           width: 100% !important;
-          height: 40vh !important;
+          height: clamp(350px, 50vh, 500px) !important;
+          margin-bottom: 20px;
+          transition: none !important;
+          transform: none !important;
+        }
+        .p-img-wrap { height: 100% !important; transition: none !important; }
+        .p-img { transition: none !important; transform: none !important; filter: grayscale(0) contrast(1) brightness(0.6) !important; }
+        .p-overlay { 
+          opacity: 1 !important; 
+          background: linear-gradient(to top, rgba(0,0,0,0.8), transparent) !important; 
+          transition: none !important;
+          transform: none !important;
+        }
+        .p-title { font-size: 1.8rem !important; }
+
+        /* Tablet Grid (2 Columns) */
+        @media (min-width: 601px) {
+          .p-rail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+          }
         }
         .contact-big {
           font-size: clamp(2.5rem, 10vw, 6rem);
@@ -626,8 +679,21 @@
           margin-bottom: 15px;
         }
         .home-title {
-          font-size: 3.2rem;
-          line-height: 1;
+          font-size: clamp(3rem, 12vw, 5rem);
+          line-height: 0.9;
+          letter-spacing: -3px;
+        }
+        .about-title-massive {
+          font-size: 4rem;
+          letter-spacing: -3px;
+          margin-bottom: 40px;
+        }
+        .about-layout {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .a-title {
+          font-size: 1.8rem;
         }
 
         #projects {
@@ -658,6 +724,55 @@
         }
         .nav-links {
           display: none;
+        }
+        .nav-menu-btn {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          cursor: pointer;
+        }
+        .nav-menu-btn span {
+          width: 24px;
+          height: 1px;
+          background: var(--accent);
+          transition: 0.3s;
+        }
+        
+        .mobile-menu {
+          position: fixed;
+          inset: 0;
+          background: #000;
+          z-index: 100000;
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 30px;
+          opacity: 0;
+          pointer-events: none;
+          transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-menu.active {
+          display: flex;
+          opacity: 1;
+          pointer-events: auto;
+        }
+        .m-link {
+          font-family: var(--font-heading);
+          font-size: 2.5rem;
+          color: white !important;
+          text-decoration: none !important;
+          letter-spacing: -2px;
+          transition: 0.3s;
+        }
+        .m-link:hover { color: var(--accent) !important; }
+        .m-close {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+          color: var(--accent);
+          font-family: var(--font-mono);
+          cursor: pointer;
         }
         .logo-img {
           height: 20px;
@@ -700,7 +815,6 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <!-- Navigation -->
     <nav class="nav">
       <a href="#home" class="logo">
         <img src="adnan.jpg" alt="Mohammed Adnan C Portfolio Logo" class="logo-img" />
@@ -712,7 +826,21 @@
         <a href="Adnan_MERN_Resume.pdf" target="_blank" class="nav-link">RESUME</a>
         <a href="#contact" class="nav-link">CONTACT</a>
       </div>
+      <div class="nav-menu-btn" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+      </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="m-close" onclick="toggleMobileMenu()">CLOSE</div>
+        <a href="#home" class="m-link" onclick="toggleMobileMenu()">HOME</a>
+        <a href="#about" class="m-link" onclick="toggleMobileMenu()">ABOUT</a>
+        <a href="#projects" class="m-link" onclick="toggleMobileMenu()">PROJECTS</a>
+        <a href="Adnan_MERN_Resume.pdf" class="m-link" onclick="toggleMobileMenu()">RESUME</a>
+        <a href="#contact" class="m-link" onclick="toggleMobileMenu()">CONTACT</a>
+    </div>
 
     <!-- UI Scroller -->
     <div class="scroller-bar">
@@ -969,6 +1097,11 @@
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
     <script>
+      // Mobile Menu Toggle
+      window.toggleMobileMenu = function() {
+        document.getElementById('mobileMenu').classList.toggle('active');
+      };
+
       // --- MASTER SYSTEM V10 ---
       gsap.registerPlugin(ScrollTrigger);
       
