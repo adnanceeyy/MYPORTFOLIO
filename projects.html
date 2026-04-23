@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#000000" />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Archive | Mohammed Adnan C Portfolio</title>
@@ -599,7 +602,7 @@
           display: inline-block;
           width: 100%;
           height: 100%;
-          background-image: url("logo.png"); /* your image path */
+          background-image: url("elelogo.png"); /* your image path */
           background-size: contain;
           background-repeat: no-repeat;
           font-size: 1.5rem;
@@ -910,7 +913,6 @@
         </div>
         <span class="icon-label">Resume.pdf</span>
       </div>
-
     </div>
 
     <!-- Dock -->
@@ -1149,6 +1151,13 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closePreview();
       });
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then(() => console.log("SW registered"));
+      }
     </script>
   </body>
 </html>
